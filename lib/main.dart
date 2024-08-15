@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-const platformMethodChannel = MethodChannel('nativeChannel');
+const platformMethodChannel = MethodChannel('com.example.android_activity');
 
 void main() {
   runApp(const MyApp());
@@ -67,10 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          platformMethodChannel.invokeMethod('launchActivity', {
-            'count': _counter,
-          });
+        onPressed: () async {
+           platformMethodChannel.invokeMethod('launchActivity', _counter);
         },
         child: const Icon(Icons.share),
       ),
