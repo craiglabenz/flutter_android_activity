@@ -1,12 +1,16 @@
 package com.example.android_activity
 
 import android.content.Intent
+import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.material3.Text
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugins.GeneratedPluginRegistrant
+
 
 class MainActivity: FlutterActivity() {
     private val CHANNEL = "nativeChannel"
@@ -30,4 +34,12 @@ class MainActivity: FlutterActivity() {
     }
 }
 
-class SecondActivity : ComponentActivity()
+class SecondActivity : ComponentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Text(text = "Second Activity")
+        }
+    }
+}
